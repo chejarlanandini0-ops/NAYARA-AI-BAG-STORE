@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NAYARA — customize your perfect bag with personal designs, colors, and sizes.">
+  <title>NAYARA | Custom Bags</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="NAYARA home">
+        <img src="assets/logo.svg" alt="NAYARA logo" width="42" height="42">
+        <span>NAYARA</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#shop">Shop</a>
+        <a href="#customize">Customize</a>
+        <a href="#about">About</a>
+      </nav>
+      <button class="cart-button" type="button" aria-label="Open shopping cart">
+        <span class="cart-icon">👜</span>
+        <span>Cart</span>
+        <span class="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">PERSONALIZE YOUR EVERYDAY</p>
+          <h1>Carry your story in style.</h1>
+          <p class="lead">Design a bag that reflects your personality, your work, and your travels.</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#customize">Design yours</a>
+            <a class="secondary-button" href="#shop">Explore bags</a>
+          </div>
+          <ul class="hero-features" aria-label="Brand benefits">
+            <li>Premium quality</li>
+            <li>Free personalization</li>
+            <li>Worldwide delivery</li>
+          </ul>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="bag-showcase bag-showcase-one"></div>
+          <div class="floating-card card-top">
+            <span>Custom Tote</span>
+            <strong>From ₹2,499</strong>
+          </div>
+          <div class="floating-card card-bottom">
+            <span>Made for you</span>
+            <strong>2–4 days</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="collection" id="shop">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">OUR COLLECTION</p>
+          <h2>Find your perfect carry.</h2>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <section class="customizer" id="customize">
+      <div class="container customizer-layout">
+        <div class="customizer-panel">
+          <div class="section-heading left">
+            <p class="eyebrow">MAKE IT UNIQUE</p>
+            <h2>Customize your bag.</h2>
+          </div>
+
+          <div class="field-group">
+            <label for="bagType">Bag type</label>
+            <div class="option-row" id="bagType" aria-label="Bag type"></div>
+          </div>
+
+          <div class="field-grid">
+            <div class="field-group">
+              <label for="bagColor">Bag color</label>
+              <select id="bagColor">
+                <option value="#f4d7c6">Blush Rose</option>
+                <option value="#7fb3a4">Forest Mint</option>
+                <option value="#6957d2">Violet Bloom</option>
+                <option value="#f7b267">Sunset Gold</option>
+                <option value="#2b374d">Midnight Blue</option>
+                <option value="#d9d7d4">Pearl Grey</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="bagSize">Size</label>
+              <select id="bagSize">
+                <option value="Small">Small</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Large">Large</option>
+                <option value="Extra Large">Extra Large</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="nameInput">Name or text</label>
+            <input id="nameInput" type="text" maxlength="28" placeholder="Enter your name or initials" value="NAYARA">
+          </div>
+
+          <div class="field-grid">
+            <div class="field-group">
+              <label for="fontStyle">Font style</label>
+              <select id="fontStyle">
+                <option value="Playfair Display">Elegant serif</option>
+                <option value="Manrope">Modern sans</option>
+                <option value="Georgia">Classic serif</option>
+                <option value="cursive">Script</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="textColor">Text color</label>
+              <input id="textColor" type="color" value="#ffffff">
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="logoUpload">Logo or image</label>
+            <input id="logoUpload" type="file" accept="image/*">
+          </div>
+
+          <div class="field-group">
+            <label>Design placement</label>
+            <div class="placement-row" aria-label="Design placement">
+              <button class="placement active" data-placement="center" type="button">Center</button>
+              <button class="placement" data-placement="front" type="button">Front</button>
+              <button class="placement" data-placement="side" type="button">Side</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="bagNotes">Add detail</label>
+            <textarea id="bagNotes" rows="3" placeholder="Optional: initials, event, or message"></textarea>
+          </div>
+
+          <button class="primary-button add-button" type="button">Add to cart</button>
+        </div>
+
+        <div class="preview-panel">
+          <div class="preview-header">
+            <span>Live preview</span>
+            <span id="selectedBagName">Signature Tote</span>
+          </div>
+          <div class="bag-stage">
+            <div class="bag-preview" id="bagPreview" aria-live="polite">
+              <div class="bag-handle"></div>
+              <div class="bag-body">
+                <div class="bag-art" id="designArea">
+                  <img id="designImage" alt="Custom logo" hidden>
+                  <span id="designText">NAYARA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="preview-footer">
+            <div>
+              <p>Starting at</p>
+              <strong id="previewPrice">₹2,499</strong>
+            </div>
+            <span id="previewSize">Medium</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow">WHY NAYARA</p>
+          <h2>Thoughtful design for everyday moments.</h2>
+        </div>
+        <div class="about-cards">
+          <article>
+            <span>✦</span>
+            <h3>Crafted with care</h3>
+            <p>Durable materials and refined finishes made for daily adventures.</p>
+          </article>
+          <article>
+            <span>✦</span>
+            <h3>Made just for you</h3>
+            <p>Customize the colors, initials, artwork, and placement to match your style.</p>
+          </article>
+          <article>
+            <span>✦</span>
+            <h3>Gift-worthy</h3>
+            <p>Create memorable pieces for birthdays, graduations, and special occasions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartTitle" aria-hidden="true">
+    <div class="cart-header">
+      <div>
+        <p class="eyebrow dark">YOUR CART</p>
+        <h3 id="cartTitle">Bag selections</h3>
+      </div>
+      <button class="close-cart" type="button" aria-label="Close cart">×</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-summary">
+      <div><span>Subtotal</span><strong id="cartSubtotal">₹0</strong></div>
+      <button class="primary-button checkout-button" type="button">Proceed to checkout</button>
+    </div>
+  </aside>
+
+  <div class="checkout-modal" id="checkoutModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="checkout"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <button class="close-modal" type="button" aria-label="Close checkout">×</button>
+      <p class="eyebrow">FINISH YOUR ORDER</p>
+      <h3 id="checkoutTitle">Customer details</h3>
+      <form id="checkoutForm">
+        <div class="field-grid">
+          <label>Full name<input type="text" name="name" required></label>
+          <label>Email<input type="email" name="email" required></label>
+        </div>
+        <div class="field-grid">
+          <label>Phone<input type="tel" name="phone" required></label>
+          <label>Delivery city<input type="text" name="city" required></label>
+        </div>
+        <label>Shipping address<textarea name="address" rows="3" required></textarea></label>
+        <label>Special notes<textarea name="notes" rows="2" placeholder="Optional"></textarea></label>
+        <button class="primary-button submit-order" type="submit">Place order</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <button class="chat-toggle" id="chatToggle" type="button" aria-expanded="false" aria-controls="chatPanel" aria-label="Open NAYARA assistant">
+    <span class="chat-toggle-icon">✦</span>
+    <span>NAYARA AI</span>
+  </button>
+
+  <section class="chat-panel" id="chatPanel" aria-label="NAYARA assistant" aria-hidden="true">
+    <div class="chat-header">
+      <div class="chat-brand">
+        <img src="assets/logo.svg" alt="NAYARA logo" width="32" height="32">
+        <div>
+          <strong>NAYARA Assistant</strong>
+          <small id="chatStatus">Checking local AI…</small>
+        </div>
+      </div>
+      <button class="chat-close" id="chatClose" type="button" aria-label="Close assistant">×</button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages" aria-live="polite">
+      <div class="message bot">
+        <p>Hello! I can help you choose a bag, explain personalization options, or guide you through your order.</p>
+      </div>
+    </div>
+
+    <form class="chat-form" id="chatForm">
+      <label class="sr-only" for="chatInput">Message the NAYARA assistant</label>
+      <textarea id="chatInput" rows="1" maxlength="500" placeholder="Ask about bags, colors, sizing…" required></textarea>
+      <button class="chat-send" type="submit" aria-label="Send message">
+        <span>Send</span>
+        <span aria-hidden="true">➤</span>
+      </button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
